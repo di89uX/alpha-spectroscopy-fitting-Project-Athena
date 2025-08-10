@@ -14,8 +14,7 @@ peak = gauss(energy,amp = 500, mu=662, sigma=5)
 background = 10+ 2*np.sin(0.02*energy)
 #Create a synthetic spectrum
 spectrum = peak + background
-noisy_spectrum = spectrum + np.random.poisson(spectrum)
-
+noisy_spectrum = np.random.poisson(spectrum)
 df = pd.DataFrame({
     'Channel': np.arange(n_channels),
     'energy': energy,
