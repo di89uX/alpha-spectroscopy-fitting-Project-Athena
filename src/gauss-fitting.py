@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #Load data from CSV
-df = pd.read_csv("data/synthetic/spectrum_Cs-137.csv")
+df = pd.read_csv(r"data\synthetic\spectrum_Cs-137.csv")
 #print(df.head())
 x = df['energy'].values
 y = df['Counts'].values
