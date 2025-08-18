@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #Load data from CSV
-df = pd.read_csv(r"data\synthetic\spectrum_Cs-137.csv")
+df = pd.read_csv(r"data\real\Am241alphaSpec.csv")
 #print(df.head())
-x = df['energy'].values
+x = df['Channel'].values
 y = df['Counts'].values
 def gaussian_with_background(x, amp, mu, sigma, bg_const):
     return amp * np.exp(-(x - mu)**2 / (2 * sigma**2)) + bg_const
