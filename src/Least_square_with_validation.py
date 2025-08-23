@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load data
-df = pd.read_csv(r"data\synthetic\spectrum_Cs-137.csv")
-x = df['energy'].values
+df = pd.read_csv(r"data\synthetic\Cs137_spectrum.csv")
+x = df['Energy_keV'].values
 y = df['Counts'].values
 
 # --- Model ---
