@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 from pathlib import Path
 
-FILE = "data\synthetic\Cs137_spectrum.csv"
+FILE = "data\synthetic\Ba133_spectrum.csv"
 df = pd.read_csv(FILE)
 print("Columns in csv:", list(df.columns))
 print(df.head())

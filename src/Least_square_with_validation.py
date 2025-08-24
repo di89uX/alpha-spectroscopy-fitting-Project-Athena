@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load data
-df = pd.read_csv(r"data\synthetic\Cs137_spectrum.csv")
-x = df['Energy_keV'].values
+df = pd.read_csv(r"data\synthetic\spectrum_Cs-137.csv")
+x = df['energy'].values
 y = df['Counts'].values
 
 # --- Model ---
@@ -32,7 +32,7 @@ initial_guess = estimate_initial_guesses(x, y)
 print("Initial guess:", initial_guess)
 
 # --- Fit ---
-params, covariance = curve_fit(gaussian_with_background, x, y, p0=initial_guess)
+params, covariance = curve_fit(gaussian_with_background, x, y, p0=initial_guess, maxfev=10000)
 amp_fit, mu_fit, sigma_fit, bg_const_fit = params
 y_fit = gaussian_with_background(x, *params)
 
