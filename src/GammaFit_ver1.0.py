@@ -168,8 +168,7 @@ fig, axes = plt.subplots(3, 1, figsize=(8, 10))
 
 # 1. Fit vs Data
 axes[0].scatter(x, y, label="Data", color="blue", s=10)
-axes[0].plot(x, y_fit, label="Fitted Gaussian", color="red", linewidth=1)
-axes[0].set_title("Gaussian Fit")
+axes[0].plot(x, y_fit, label="Fitted Model (Gaussian + Background)", color="red", linewidth=1)axes[0].set_title("Gaussian Fit")
 axes[0].set_xlabel("Energy (keV)")
 axes[0].set_ylabel("Counts")
 axes[0].legend()
