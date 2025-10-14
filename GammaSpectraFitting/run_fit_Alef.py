@@ -10,7 +10,7 @@ from src.Analysis.Fit_engine import run_peak_fit
 
 def main():
     # --- 1. Data Loading (The only place you read the file) ---
-    FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\Cs137_spectrum.csv'
+    FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\Co60_spectrum.csv'
     try:
         df = pd.read_csv(FILE_PATH)
     except FileNotFoundError:
