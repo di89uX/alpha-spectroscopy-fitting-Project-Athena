@@ -1,16 +1,16 @@
-# File: run_fit.py (Sits at the project root)
+# File: run_fit_Bet.py More statistical rigor with two-panel plot and chi-square calculation
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import the specific functions needed from your structured modules
+# Import the specific functions needed from structured modules
 from src.models.gamma_peak import total_model, gaussian, background 
 from src.Analysis.peak_estimation import estimate_initial_params # Assumed to be updated for auto-selection
 from src.Analysis.Fit_engine import run_peak_fit
-# Import argparse if you are using the CLI version, otherwise hardcode paths
+# Import argparse when using the CLI version, otherwise hardcode paths
 
-# --- Configuration (Using hardcoded paths for this example) ---
+# --- Configuration ---
 FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\K40_spectrum.csv'
 # Replace the above with argparse logic from previous steps if using CLI!
 
@@ -84,7 +84,7 @@ def main():
     axes[0].plot(x, background_fit, label='Fitted Background', color='orange', linestyle=':', linewidth=1)
 
     axes[0].set_title(r'Gamma Spectrum Fit: Peak $\mu$ = {mu_fit:.3f} keV'.format(mu_fit=mu_fit))
-    axes[0].set_ylabel('Counts / Channel')
+    axes[0].set_ylabel('Counts')
     axes[0].legend(loc='best', frameon=True)
     axes[0].ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
     axes[0].grid(True, linestyle=':', alpha=0.6)
