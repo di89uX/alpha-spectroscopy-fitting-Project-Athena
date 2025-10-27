@@ -29,7 +29,7 @@ except ImportError:
         return {'error': 'full_multi_peak_analysis function is not implemented or imported.'}
 
 # --- Configuration ---
-FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\Eu-152_spectrum.csv'
+FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\Cs137_spectrum.csv'
 BACKGROUND_PARAMS_COUNT = 3 # (c0, c1, c2)
 
 # Function to format a measurement as Value ± Uncertainty
@@ -126,7 +126,7 @@ def main():
         # Note: The Value and Uncertainty columns for this row will be blank 
         # because the combined string is placed in the 'Parameter' column for visual grouping.
         report_data.append([
-            f'P{i+1}_Energy ($\mu$) (keV)', 
+            rf'P{i+1}_Energy ($\mu$) (keV)', 
             energy_measurement_str, 
             "", # Value column blanked
             t_ratio_mu
@@ -138,13 +138,13 @@ def main():
         
         # Sigma (sigma) - Width
         t_ratio_sigma = abs(sigma_fit / sigma_perr) if sigma_perr != 0 else np.inf
-        report_data.append([f'P{i+1}_Sigma (\\sigma)', sigma_fit, sigma_perr, t_ratio_sigma])
+    report_data.append([rf'P{i+1}_Sigma (\sigma)', sigma_fit, sigma_perr, t_ratio_sigma])
         
     # Create DataFrame and print table
     df_report = pd.DataFrame(report_data, columns=[
         'Parameter', 
         'Value', 
-        'Uncertainty (1\\sigma)', 
+        r'Uncertainty (1\sigma)', 
         't-ratio'
     ])
     
@@ -161,7 +161,9 @@ def main():
                    showindex=False,
                    floatfmt={
                        'Value': '.4e', # Scientific notation for A and sigma
-                       'Uncertainty (1\$\sigma\$)': '.4e', # Scientific notation for errors
+                       # The DataFrame column name is plain text 'Uncertainty (1\sigma)'
+                       # so use that exact key here (no dollar signs).
+                       r'Uncertainty (1\sigma)': '.4e', # Scientific notation for errors
                        't-ratio': '.2f' # Two decimals for t-ratio
                    }))
     print("="*80 + "\n")
