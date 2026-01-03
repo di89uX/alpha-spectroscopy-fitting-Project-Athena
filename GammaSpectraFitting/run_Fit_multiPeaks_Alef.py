@@ -29,7 +29,7 @@ except ImportError:
         return {'error': 'full_multi_peak_analysis function is not implemented or imported.'}
 
 # --- Configuration ---
-FILE_PATH = r'GammaSpectraFitting\data\raw\synthetic\Cs137_spectrum.csv'
+FILE_PATH = r'GammaSpectraFitting\data\raw\real\Eu-152.csv'
 BACKGROUND_PARAMS_COUNT = 3 # (c0, c1, c2)
 
 # Function to format a measurement as Value ± Uncertainty
